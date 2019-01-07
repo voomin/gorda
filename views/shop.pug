@@ -1,0 +1,27 @@
+html
+  head
+    title 상점 등록
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/shop.js')
+    link(rel='stylesheet', href='../css/shop.css')
+  body
+    form(method='post', action='/AddShop')
+      table
+        tr
+          td.title(colspan='2') 상점등록
+        tr
+          td.one 상점 이름
+          td
+            input(name='name', type='text', placeholder='입력해주세요.')
+        tr
+          td.one 상점 주소
+          td
+            input(name='address', type='text', placeholder='입력해주세요.')
+        tr
+          td.one 상점 전화 번호
+          td
+            input(name='tel', type='text', placeholder='입력해주세요.')
+        tr
+          td(colspan='2')
+            input.enter(type='submit', value='등록')

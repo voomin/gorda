@@ -1,0 +1,43 @@
+html
+  head
+    title 주문정보
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src="/socket.io/socket.io.js")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='common.js')
+    script(src='receipt.js')
+    script.
+      var shops={}
+      var foods={}
+    link(rel='stylesheet', href='receipt.css')
+  body
+    .tab
+      .p1
+      .p2
+    .close.btn
+      img(src='img/close.png')
+    table
+      caption 주문정보
+        .bar
+      tr
+        th 가게
+        th 음식
+        th 상태
+      each v,i in obj
+        tr
+          td.sh(id=v.shop.sh_id) #{v.shop.sh_name}
+          td.fd(id=v.food.fd_id)
+            img(src=v.food.fd_img_src)
+          td.state(id=) #{v.state_id}
+          script.
+            shops["#{v.shop.sh_id}"]={
+              sh_address:"#{v.shop.sh_address}",
+              sh_tel:"#{v.shop.sh_tel}"
+              };
+            foods["#{v.food.fd_id}"]={
+              fd_name:"#{v.food.fd_name}",
+              fd_price:"#{v.food.fd_price}"
+            }
+    
+    input(type='submit' value='음식 받음')
+    button.orderCancel 주문취소

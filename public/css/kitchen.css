@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+}
+.tab{
+    z-index: 1;
+    display:none;
+    position:fixed;
+    margin-top:70px;
+    left:50%; 
+    height:60%;
+    transform:translateX(-50%);
+    border:0.5px solid #eee;
+    background:white;
+    box-shadow:0 5px 5px rgba(151, 151, 151, 0.8);
+    overflow : auto;
+}
+.info{
+    padding:30px;
+    width:50%;
+}
+.info .date{
+    float:right;
+    color:#aaa;
+}
+.info .order_id{
+    color:#aaa;
+}
+.info .buyer{
+    
+}
+.info table{
+    width:100%;
+}
+.info table img{
+    width:100px;
+}
+.info .totalM{
+    float:left;
+}
+.info .payM{
+    float:right;
+    color:#aaa;
+}
+.info .btn{
+    clear: both;
+    width:100%;
+    border:1px solid #333;
+    text-align: center;
+    font-size:24px;
+    color:white;
+    padding:30px 0 30px 0;
+    cursor: pointer;
+}
+.tos{
+    display: none;
+    background:green;
+}
+.close{
+    background: #333;
+}
+.false{
+    cursor: pointer;
+    padding:5px;
+    font-size:11px;
+    float:right;
+    color:#333;
+}
+.info .tos:hover{
+    color:#333;
+}
+.nav{
+    width:100%;
+    text-align: center;
+}
+.area .btn{
+    margin-right:10px;
+    cursor: pointer;
+    float:right;
+}
+.area .btn:hover{
+    background:yellow;
+}
+.out,.in{
+    width:50%;
+    height:50%;
+    background:#d3d3d3;
+}
+.out{
+    float:left;
+}
+.out .end{
+    float:left;
+    width:20%;
+    height:100%;
+    background:#777;
+    overflow: auto;
+}
+.out .end *{
+    color:#ddd;
+    text-align: center;
+    width:100%;
+    height: 20%;
+}
+.out .wait{
+    float:right;
+    width:80%;
+    height:100%;
+    background:#ffd1d1;
+    overflow: auto;
+    
+}
+.out .wait .bar{
+    height:30px;
+    background: yellow;
+}
+.in{
+    overflow: auto;
+    float:right;
+    background:#fff;
+    position:relative;
+}
+.in .sub{
+    position:absolute; bottom:0px;
+    display: none;
+    width:100%;
+    text-align: center;
+}
+.kitchen{
+    clear: both;
+    width:100%;
+    height:45%;
+    background:#ddd;
+    overflow: auto;
+}
+.kitchen .fd{
+    cursor: pointer;
+    margin:20px;
+    float:left;
+    width:90px;
+    text-align: center;
+}
+.kitchen .fd:hover{
+    background: white;
+}
+.kitchen img{
+    width:50px;
+}
+.rcp{
+    cursor: pointer;
+    float: left;
+    padding: 20px 0 20px 0;
+    width:210px;
+    border:1px solid #aaa;
+    text-align: center;
+    overflow: hidden;
+}
+.rcp:hover{
+    background:green;
+}
+.rcp .status{
+    color:#ccc;
+}

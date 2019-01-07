@@ -1,0 +1,19 @@
+html
+  head
+    title 상점관리
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/header.js')
+    script(src='../js/manage.js')
+    link(rel='stylesheet', href='../css/header.css')
+    link(rel='stylesheet', href='../css/manage.css')
+  body
+    include header.pug
+    .wrap
+      .list
+        each val,index in shops
+          .shop(id=val.sh_id)
+            span.name #{val.sh_name}
+            span.address #{val.sh_address}
+      .add 
+        a(href='/shop') + 상점 추가하기

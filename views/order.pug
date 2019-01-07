@@ -1,0 +1,80 @@
+html
+  head
+    title Order Check
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src="https://cdn.socket.io/socket.io-1.0.0.js")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src="//developers.kakao.com/sdk/js/kakao.min.js")
+    script(src='../js/common.js')
+    script(src='../js/order.js')
+    script.
+        var totalm=0;
+        var foods={};
+    -var comma=(n)=>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원";
+    link(rel='stylesheet', href='../css/order.css')
+  body
+    .tab.viewInfo
+        p 
+    .tab.addressInsert
+        h2 장소
+        input(placeholder='입력해주세요.')
+    .tab.profileInsert
+        h4 이름
+        input(placeholder='입력해주세요.')
+        h4 전화번호
+        input(placeholder='입력해주세요.')
+    .tab.paylist
+        p.cash 직접결제
+        p.payApp pay App이용
+        p   
+            a(id="kakao-login-btn")
+            a(href="http://developers.kakao.com/logout")
+        //p 카드결제
+        //p 코인결제
+    .tab.food
+        img
+        p.name
+        p.price
+    .tab.shop 
+        p.name 상점
+        p.tel 정보
+        p.address 불러오는중..
+    .wrap
+        table
+            caption 
+                p #{basket.name}님
+                p 주문목록 확인
+            tr
+                th 가게 코드
+                th 메뉴 이름
+                th 수량
+                th 가격
+            each v,i in basket.list
+                tr(class=v.fd_id)
+                    td.sh #{v.sh_id}
+                    td.fd #{v.fd_name}
+                    td.count 1
+                    td.money(id="pr"+i) #{comma(v.fd_price)}
+                script.
+                    if(!foods["#{v.fd_id}"])
+                    foods["#{v.fd_id}"]={
+                        sh_id:"#{v.sh_id}",
+                        fd_id:"#{v.fd_id}",
+                        fd_name:"#{v.fd_name}",
+                        fd_price:"#{v.fd_price}",
+                        fd_img_src:"#{v.fd_img_src}"
+                    }
+                    totalm+=parseInt("#{v.fd_price}");
+
+        hr
+        .time #분 소요
+        .total #원
+        //.my.addr 사용자 주소
+        //.my.profile 
+        .back.btn 뒤로가기
+        if !offline
+            //.next1.btn 장소입력
+            //.next2.btn 신분입력
+            //.pay.btn 결제하기
+        .pay.btn 결제하기
+        

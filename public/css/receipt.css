@@ -1,0 +1,46 @@
+table{
+    width:100%;
+    text-align:center;
+    margin-bottom:100px;
+}
+caption{
+    line-height: 100px;
+}
+th{
+    border-bottom:5px double #333;
+}
+img{
+    width:100px;
+}
+.close img{
+    cursor: pointer;
+    float:right;
+    width:50px;
+}
+input[type='submit']{
+    outline: none;
+    width:100%;
+    font-size:36px;
+    background:#333;
+    color:white;
+    cursor: pointer;
+}
+.sh, .fd{
+    cursor: pointer;
+}
+.tab{
+    z-index: 0;
+    display: none;
+    position:fixed;
+    margin-top:70px;
+    left:50%; 
+    transform:translateX(-50%);
+    border:0.5px solid #eee;
+    background:white;
+    box-shadow:0 5px 5px rgba(151, 151, 151, 0.8);
+    overflow : auto;
+    padding:30px;
+}
+.bar{
+    
+}

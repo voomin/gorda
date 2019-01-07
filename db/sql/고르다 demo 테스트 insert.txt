@@ -1,0 +1,22 @@
+﻿insert into account values('test','1234');
+insert into Owner values('test',null,'업주 A씨');
+insert into shop values(1,null,'신나는마트');
+insert into food values(1,null,'포도',2700);
+insert into food values(1,null,'사과',1900);
+insert into food values(1,null,'레몬',2200);
+
+
+
+
+
+insert into order_state values(null,'주문대기');
+insert into order_state values(null,'주문접수');
+insert into order_state values(null,'요리진행');
+insert into order_state values(null,'요리완료');
+insert into order_state values(null,'배달중');
+insert into order_state values(null,'배달완료');
+insert into order_state values(null,'끝');
+
+
+insert into account values('test2',password('test'),'테스터',null,null,null);
+insert into shop values('test',null,'김밥나라','운동장점','041-906-8585');

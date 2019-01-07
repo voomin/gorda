@@ -1,0 +1,42 @@
+html
+  head
+    title 회원가입
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/sign.js')
+    link(rel='stylesheet', href='../css/sign.css')
+  body
+    form(action='/sign', method='post')
+      h2 welcome gorda
+      table
+        tr
+          td.one
+            .group
+              input(name='id', type='text', autocomplete='off', required='')
+              span.highlight
+              span.bar
+              label id
+        tr
+          td.one
+            .group
+              input(name='pwd', type='password', required='')
+              span.highlight
+              span.bar
+              label password
+        tr
+          td.one
+            .group
+              input(name='pwd2', type='password', required='')
+              span.highlight
+              span.bar
+              label password 확인
+        tr
+          td.one
+            .group
+              input(name='name', autocomplete='off', type='text', required='')
+              span.highlight
+              span.bar
+              label 이름
+        tr
+          td
+            input(type='button', value=status)

@@ -1,0 +1,42 @@
+﻿<html>
+    <head>
+        <title>상점 등록</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src='../js/shop.js'></script>
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/shop.css">
+    </head>
+    <body>
+        <form method="post" action='/shopAdd'>
+            <table>
+                <tr>
+                    <td colspan='2' class='title'>상점등록</td>
+                </tr>
+                <tr>
+                    <td class='one'>상점 이름</td>
+                    <td>
+                        <input name='name' type="text" placeholder="입력해주세요."></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='one'>상점 주소</td>
+                    <td>
+                        <input name='name' type="text" placeholder="입력해주세요."></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='one'>상점 전화 번호</td>
+                    <td>
+                        <input name='name' type="text" placeholder="입력해주세요."></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <input class='enter' type="submit" value='등록'></input>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

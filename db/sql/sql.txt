@@ -1,0 +1,96 @@
+CREATE TABLE account
+(
+ac_id varchar(100) primary key,
+pwd varchar(100) not null,
+salt text not null
+);
+CREATE TABLE member
+(
+ac_id varchar(100) primary key REFERENCES account(ac_id) ON UPDATE CASCADE on delete cascade,
+name varchar(100),
+nick_name varchar(100),
+tel varchar(15),
+create_date text,
+jender char(1),
+birthday text
+);
+create table user_address
+(
+ac_id varchar(100) not null REFERENCES member(ac_id) ON UPDATE CASCADE on delete cascade,
+addr_name varchar(16),
+addr_txt text not null,
+basic char(1) default 'n'
+);
+create table health
+(
+ac_id varchar(100) not null REFERENCES member(ac_id) ON UPDATE CASCADE on delete cascade,
+insert_date text,
+height integer,
+weight integer
+);
+CREATE TABLE shop
+(
+ac_id varchar(100) not null REFERENCES member(ac_id) ON UPDATE CASCADE on delete cascade,
+sh_id char(11) primary key,
+sh_name varchar(100) not null, 
+sh_address varchar(100), sh_tel varchar(15)
+);
+CREATE TABLE food
+(
+sh_id text not null REFERENCES shop(sh_id) ON UPDATE CASCADE on delete cascade,
+fd_id char(11) primary key,
+fd_name varchar(100) not null,
+fd_price integer not null, 
+fd_img_src varchar(25)
+);
+create table cooking_time(
+fd_id char(11) not null references food(fd_id) on update cascade on delete cascade,
+insert_date text,
+time integer
+);
+CREATE TABLE order_state
+(
+state_id integer primary key autoincrement,
+state text not null
+);
+CREATE TABLE receipt
+(
+sh_id text not null references shop(sh_id) on update cascade on delete cascade,
+buy_ac_id varchar(100) not null references member(ac_id) on update cascade on delete cascade,
+order_id char(14) primary key,
+state_id integer not null references order_state(state_id) on update cascade on delete cascade,
+order_date text not null,
+total_money integer not null,
+pay_money integer not null
+);
+CREATE TABLE order_food
+(
+choice_id text primary key,
+order_id char(14) not null references receipt(order_id) on update cascade on delete cascade,
+ac_id char(11) not null references member(ac_id) on update cascade on delete cascade,
+fd_id char(11) not null references food(fd_id) on update cascade on delete cascade,
+state_id integer not null references order_state(state_id) on update cascade on delete cascade,
+req_txt text
+);
+CREATE TABLE team
+(
+t_id text,
+ac_id char(11) not null references member(ac_id) on update cascade on delete cascade,
+sh_id text references shop(sh_id) on update cascade on delete cascade,
+t_name text,
+grade integer not null,
+invite integer not null,
+primary key(t_id,ac_id)
+);
+
+CREATE TABLE team_sh_auth
+(
+t_id text not null references team(t_id) on update cascade on delete cascade,
+ac_id char(11) not null references member(ac_id) on update cascade on delete cascade,
+graph integer not null,
+counter integer not null,
+kitchen integer not null,
+primary key(t_id,ac_id)
+);
+
+pragma foreign_keys=1;

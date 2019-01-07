@@ -1,0 +1,93 @@
+.navbar {
+    z-index:3;
+    background: white;
+    margin: 0; padding:10px 50px;
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 10px 0 #888;
+    display:table;
+}
+.navbar>li{
+    vertical-align: middle;
+    display: table-cell;
+    text-align:center;
+}
+.my,.login{
+    padding-right:100px;
+    line-height: 36px;
+    float:right;
+}
+.my{
+    cursor: pointer;
+}
+.my_menu{
+    display:none;
+    position: absolute;
+    width:100px;
+    z-index: 4;
+    border:0.5px solid #ddd;
+    box-shadow:0 5px 5px rgba(151, 151, 151, 0.8);
+    background:white;
+}
+.my_menu p{
+    cursor: pointer;
+    font-size:11px;
+    text-align:center;
+    color:#666;
+}
+.basket_zone{
+    z-index: 4;
+    position: fixed;
+    left:50%; 
+    transform:translateX(-50%);
+    display:none;
+}
+.logo{
+    font-size: 24px;
+    font-weight:bold;
+    cursor: pointer;
+}
+.btn img{
+    width:50px;
+}
+.btn{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+a{              
+    display: block;
+    text-decoration: none;
+}
+.receipts{
+    position:fixed;
+    float:right;
+    margin-top:70px;
+    left:100%; 
+    transform:translateX(-100%);
+}
+.rcp a{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+	position: relative;
+	padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;	
+	background-color: #F2CF66;
+	border-bottom: 5px solid #D1B358;
+	text-shadow: 0px -2px #D1B358;
+}
+.rcp a:hover{
+	transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+}
+@media ( max-width: 600px ) {
+    
+}

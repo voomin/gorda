@@ -1,0 +1,54 @@
+html
+  head
+    title 내정보
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/header.js')
+    script(src='../js/profile.js')
+    script.
+        var before_name="#{name}";
+    link(rel='stylesheet', href='../css/header.css')
+    link(rel='stylesheet', href='../css/profile.css')
+  body
+    include header.pug
+    .menu
+        p 기본정보
+        p 주거지
+        p 비밀번호 변경
+    .wrap.basic
+        table
+            tr
+                td id
+                td  
+                    input.ac_id(value=ac_id readonly)
+                td.suport
+            tr
+                td name
+                td  
+                    input.name(value=name)
+                td.suport
+            tr
+                td 별명
+                td  
+                    input.nick_name(value=nick_name)
+                td.suport 빈값 가능
+            tr
+                td 전화번호
+                td  
+                    input.tel(value=tel)
+                td.suport 빈값 가능
+            tr
+                td 성별
+                td  
+                    input.jender(value=jender)
+                td.suport 빈값 가능
+            tr
+                td 출생일
+                td  
+                    input.birthday(value=birthday)
+                td.suport 빈값 가능
+            tr
+                td(colspan='3')
+                    button 수정하기
+
+      

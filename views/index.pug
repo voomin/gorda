@@ -1,0 +1,141 @@
+html
+  head
+    title index
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src="/socket.io/socket.io.js")
+    script(src='common.js')
+    script(src='index.js')
+    script(src='header.js')
+    link(rel='stylesheet', href='header.css')
+    link(rel='stylesheet', href='style.css')
+    script.
+      foods={};//"#{foods}";
+    -var comma=(n)=>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원";
+  body
+    if owner
+      .tab.owner.food_edit
+        .close.btn
+          img(src='img/close.png')
+        .info
+          form(action='/updateFood' method='post' enctype="multipart/form-data")
+           table
+            tr
+              td.title(colspan='2')
+            tr
+              td.one 메뉴 이름
+              td
+                input(name='name', type='text', placeholder='입력해주세요.' autocomplete='off')
+            tr
+              td.one 메뉴 가격
+              td
+                input(name='price', type='number', placeholder='입력해주세요.' autocomplete='off')
+            tr
+              td.one 메뉴 사진
+              td
+                input(name='img', type='file', autocomplete='off')
+            tr
+              td(colspan='2')
+                input.enter(type='submit', value='수정하기')   
+            tr
+              td(colspan='2')
+                .btn.delete 메뉴 삭제하기
+            tr
+              td(colspan='2')
+                input(name='fd_id', style='display:none')
+      .tab.owner.food_new
+        .status
+          | 메뉴등록
+        .close.btn
+          img(src='img/close.png')
+        .info
+          form(action='/AddFood' method='post' enctype="multipart/form-data")
+           table
+            tr
+              td.title(colspan='2')
+            tr
+              td.one 메뉴 이름
+              td
+                input(name='name', type='text', placeholder='입력해주세요.' autocomplete='off')
+            tr
+              td.one 메뉴 가격
+              td
+                input(name='price', type='number', placeholder='입력해주세요.' autocomplete='off')
+            tr
+              td.one 메뉴 사진
+              td
+                input(name='img', type='file', autocomplete='off')
+            tr
+              td(colspan='2')
+                input.enter(type='submit', value='등록')   
+    .tab.food_info
+      .status
+        | 클릭하여 담기
+      .close.btn
+        img(src='img/close.png')
+      if owner
+        .edit.btn 
+          img(src='img/pencil.png')
+      .info
+        img
+        .choice 담기
+        .name
+        .price
+        hr
+        .clickCount 
+        .orderCount 
+          span #
+          | 건
+        .shop
+          //.shop_name 김밥나라
+          //.recipe 재료1, 재료2, 재료3
+          //.Explanation
+            | 가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+        //hr
+        //.comment
+          | 댓글
+    .tab.order_list
+      .close.btn
+        img(src='img/close.png')
+      if link=='login'
+       span.basket_name #{basket.name}
+       span.change_name 이름수정
+      table.list
+      .order.btn 주문하기
+      .total
+    .tab.team_menu
+      h2 team
+      .list
+      .newParty 
+        span + 팀 만들기
+    include header.pug
+    .boards
+      if shops
+        for i in shops
+          .board(id=i.sh_id)
+            if owner
+              p(class='Go')
+                a(href='/kitchen='+i.sh_id) Go
+            span.sh_name 
+              | #{i.sh_name}
+              if offline==i.sh_id
+                span.offBtn 　in
+            .list
+              if i.foods && shops.length == 1
+                for k in i.foods
+                  .one(id=k.fd_id)
+                    img(src=k.fd_img_src)
+                    p(class='name') #{k.fd_name}
+                    p(class='price') 
+                      a(href='/shop='+i.sh_id class='shop') #{i.sh_name}
+                      span #{comma(k.fd_price)}
+                  script.
+                    foods["#{k.fd_id}"]={
+                      name:"#{k.fd_name}",
+                      price:"#{k.fd_price}",
+                      src:"#{k.fd_img_src}",
+                    };
+          hr(class='board-line')
+          if owner
+            .food_add.btn +메뉴 추가하기
+    

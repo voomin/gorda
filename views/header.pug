@@ -1,0 +1,25 @@
+<link rel="shortcut icon" href="/img/favicon.ico">
+div
+    .my_menu
+      p 
+        a(href='/profile') 내 정보
+      p 
+        a(href='/manage') 상점관리
+      p.teamManage 팀관리
+      p 
+        a(href='/logout') 로그아웃
+    .basket_zone
+        .basket.btn
+            img(src='img/basket.png')
+    .navbar
+        span.logo gorda
+        span(class=link)
+            a(href=link) #{name}
+    if receipts
+      .receipts
+        each v,i in receipts
+          .rcp(id=v.order_id) 
+            a(href='/receipt='+v.order_id) #{v.order_id.slice(6,7)}
+
+          
+    

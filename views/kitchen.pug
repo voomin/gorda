@@ -1,0 +1,48 @@
+html
+  head
+    title 매장 안
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src="/socket.io/socket.io.js")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/common.js')
+    script.
+        var sid="#{shop.sh_id}";
+    script(src='../js/kitchen.js')
+    link(rel='stylesheet', href='../css/kitchen.css')
+  body
+    .tab.info
+        .date 날짜:
+            span
+        .order_id 
+            span
+        .buyer 구매자 : 
+            span
+        table
+        .totalM 총액:
+            span
+        .payM 지불금액:
+            span
+        .btn.tos.serving 음식 완료
+        .btn.tos.cook 요리시작
+        .btn.close 닫기
+        .false 주문거절하기
+    .nav
+        h2 #{shop.sh_name}
+    .area.out
+        .end
+            .success 
+            .non_pay 
+            .cooking
+            .order_wait
+            .Cancellation 
+        .wait
+    .area.in
+        .btn +
+        .sub test
+    .area.kitchen
+        .btn +
+        
+
+
+    
+

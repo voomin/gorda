@@ -1,0 +1,16 @@
+html
+  head
+    title login
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='../js/login.js')
+    link(rel='stylesheet', href='../css/login.css')
+  body
+    form.board(method='post', action='login')
+      .link
+        a(href='signUp') 계정만들기
+      p #{status}
+      input.effect-4(name='id', autocomplete='off', type='text', placeholder='id')
+      input.effect-4(name='pwd', type='password', placeholder='password')
+      br
+      input.button-three(type='submit', value='로그인')
